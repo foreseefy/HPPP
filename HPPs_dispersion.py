@@ -20,20 +20,22 @@ class HPPs_dispersion():
         plt.title(f'{self.name}_dispersion')
         plt.style.use('seaborn-whitegrid')
         plt.scatter(data[0], data[1],s=3)
+        plt.xlabel('q(1/m)')
+        plt.ylabel('frequency(Hz)')
+        # plt.legend()
         # plt.show()
     def savefig(self):
         plt.savefig(fr'.\PNG\{self.name}_dispersion.png', dpi=200)
-# list = ['BN','BP','AlN','AlP','GaP']
-# for item in list:
-#     a1 =HPPs_dispersion(item)
-#     a1.ReadData()
-#     a1.Figure()
-#     a1.savefig()
-filename = 'GaP'
-newfilename = filename + '2'
-mv.rename(filename)
-
-a1 =HPPs_dispersion(newfilename)
-a1.ReadData()
-a1.Figure()
-a1.savefig()
+list = ['BN','BP2','AlN','AlP','GaP']
+for item in list:
+    a1 =HPPs_dispersion(item)
+    a1.ReadData()
+    a1.Figure()
+    a1.savefig()
+# filename = 'BN'
+# newfilename = filename + '2'
+# mv.rename(filename)
+# a1 =HPPs_dispersion(newfilename)
+# a1.ReadData()
+# a1.Figure()
+# a1.savefig()

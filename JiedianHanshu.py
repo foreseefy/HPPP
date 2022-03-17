@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import mv
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
 # 介电函数类，两个bool分别是实部和虚部介电函数的显示
@@ -12,7 +13,7 @@ class JieDianHanShu():
         self.Im = bool2
 
     def ReadData(self):
-        data_file = os.path.join(fr'.\Jiedian_Data\dielectric_%s.txt'
+        data_file = os.path.join(fr'.\dielectric\%s.txt'
                                  % self.name)
         data = pd.read_table(data_file, sep='\s+', header=None,
                              names=['w', 'q', 'k', 'ε_xx', 'ε2', 'ε3', 'ε_yy', 'ε5', 'ε_zz',
@@ -87,9 +88,10 @@ class JieDianHanShu():
          if Width :
              if len(FourNumber) > 2:
                  plt.text(FourNumber[0],y_max/6,r'$TO$',fontdict={'size':'7','color':'b'})
-                 # plt.text(FourNumber[1],y_max/6,r'$LO$',fontdict={'size':'7','color':'b'})
-                 # plt.text(FourNumber[2],y_max/6,r'$TO$',fontdict={'size':'7','color':'b'})
+                 plt.text(FourNumber[1],y_max/6,r'$LO$',fontdict={'size':'7','color':'b'})
+                 plt.text(FourNumber[2],y_max/6,r'$TO$',fontdict={'size':'7','color':'b'})
                  plt.text(FourNumber[3],y_max/6,r'$LO$',fontdict={'size':'7','color':'b'})
+
                  plt.axvline(FourNumber[0], color='gray', linewidth=1.0, linestyle='-.')
                  plt.axvline(FourNumber[1], color='gray', linewidth=1.0, linestyle='-.')
                  plt.axvspan(FourNumber[0],FourNumber[1],color='gray',lw='2',alpha=0.4)
@@ -121,14 +123,17 @@ class JieDianHanShu():
         plt.savefig(fr'.\PNG\dielectric_{self.name}_graph.png',dpi=800)
         # plt.show()
 
-#
-a1 = JieDianHanShu('AlP', 1, 1)
+
+# a1 = JieDianHanShu('AlP', 1, 1)
+# a1.JiedianHanShuTu()
+# a1.XiuShi(1)
+# a1.save()
+
+filename = 'BAs'
+graph_name = 'dielectric'
+mv.rename(filename,graph_name)
+a1 =JieDianHanShu(filename,1,1)
 a1.JiedianHanShuTu()
 a1.XiuShi(1)
-# a1.save()
-# JieDianHanShu.save()
-
-
-
-
+a1.save()
 
