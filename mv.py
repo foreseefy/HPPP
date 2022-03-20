@@ -1,24 +1,21 @@
 import os
 import shutil
 
-def mycopyfile(file_name,srcfile,dstpath):
+def mycopyfile(srcfile,dstfile):
     #判断文件存在
     if not os.path.isfile(srcfile):
         print("%s not exist"%(srcfile))
     else:
-        # fpath,fname = os.path.split(srcfile)
+        fpath,fname = os.path.split(dstfile)
         #判断路径存在
-        if not os.path.exists(dstpath):
-            os.makedirs(dstpath)
-        fname = dstpath + '\\' + file_name + '.txt'
-        #复制文件并命名
-        shutil.copy(srcfile,fname)
-        print("copy %s -> %s"%(srcfile,dstpath))
+        if not os.path.exists(fpath):
+            os.makedirs(fpath)
 
-#其中的一个例子
-def rename(file_name,graph_name):
-    src_dir = f'..\{graph_name}\{file_name}'
-    dst_dir = f'.\{graph_name}'
-    src_file= src_dir + f'\{graph_name}.txt'
-    # print(src_file)
-    mycopyfile(file_name,src_file,dst_dir)
+        #复制文件并命名
+        shutil.copy(srcfile,dstfile)
+        print("copy %s -> %s"%(srcfile,dstfile))
+
+
+srcfile = '..\dispersion\BN\dispersion.txt'
+dstfile = '.\dispersion\y\dispersion.txt'
+mycopyfile(srcfile,dstfile)

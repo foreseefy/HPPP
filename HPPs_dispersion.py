@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 import mv
 
 class HPPs_dispersion():
-    def __init__(self,filename):
+    def __init__(self,filename,direction):
         self.name = filename
+        self.dire = direction
 
     def ReadData(self):
-        data_file = os.path.join(fr'.\dispersion\{self.name}.txt')
+        data_file = os.path.join(fr'.\dispersion\{self.dire}\{self.name}.txt')
         data = pd.read_csv(data_file, sep='\s+', header=None)
         # print(data[0])
         return data
@@ -25,17 +26,19 @@ class HPPs_dispersion():
         # plt.legend()
         # plt.show()
     def savefig(self):
-        plt.savefig(fr'.\PNG\{self.name}_dispersion.png', dpi=200)
-list = ['BN','BP2','AlN','AlP','GaP']
-for item in list:
-    a1 =HPPs_dispersion(item)
-    a1.ReadData()
-    a1.Figure()
-    a1.savefig()
-# filename = 'BN'
-# newfilename = filename + '2'
-# mv.rename(filename)
-# a1 =HPPs_dispersion(newfilename)
-# a1.ReadData()
-# a1.Figure()
-# a1.savefig()
+        plt.savefig(fr'.\PNG\dispersion\{self.name}_dispersion_{self.dire}.png', dpi=200)
+# list = ['BN','BP2','AlN','AlP','GaP']
+# for item in list:
+#     a1 =HPPs_dispersion(item)
+#     a1.ReadData()
+#     a1.Figure()
+#     a1.savefig()
+filename = 'BN'
+direction = 'z'
+srcfile = f'..\dispersion\{filename}\dispersion.txt'
+dstfile = f'.\dispersion\{direction}\{filename}.txt'
+mv.mycopyfile(srcfile,dstfile)
+a1 =HPPs_dispersion(filename,direction)
+a1.ReadData()
+a1.Figure()
+a1.savefig()
