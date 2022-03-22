@@ -129,11 +129,11 @@ class JieDianHanShu():
 # a1.XiuShi(1)
 # a1.save()
 
-filename = 'BAs'
-graph_name = 'dielectric'
-mv.rename(filename,graph_name)
-a1 =JieDianHanShu(filename,1,1)
-a1.JiedianHanShuTu()
-a1.XiuShi(1)
-a1.save()
+# filename = 'BAs'
+# graph_name = 'dielectric'
+# mv.rename(filename,graph_name)
+# a1 =JieDianHanShu(filename,1,1)
+# a1.JiedianHanShuTu()
+# a1.XiuShi(1)
+# a1.save()
 
