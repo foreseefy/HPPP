@@ -24,7 +24,7 @@ class lifetime():
     def savefig(self):
         plt.savefig(fr'.\PNG\{self.name}_lifetime.png', dpi=800)
 
-a1 =lifetime('AlP300')
+a1 =lifetime('BP_z')
 a1.ReadData()
 a1.Figure()
 a1.savefig()

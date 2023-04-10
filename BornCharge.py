@@ -29,27 +29,27 @@ plt.figure()
 plt.style.use('ggplot')
 
 
-# list = ['BN','BP','AlN','AlP','GaP']
+# list = ['BN','BP','AlN','AlP']
 def HuaTu(list):
     for i in range(len(list)):
         data = BornCharge(list[i]).ReadData()
 
-        color = ['blue','red','green','black','gray']
+        color = ['blue','red','green','black']
         if len(data[1]) == 4:
-            plt.plot(data[0], [data[1][0],data[1][1]], color = color[i],label=list[i],linewidth=3.0)
-            plt.plot(data[0], [data[1][2],data[1][3]], color = color[i],linewidth=3.0)
+            plt.plot([data[1][0],data[1][1]],data[0],  color = color[i],label=list[i],linewidth=3.0)
+            plt.plot([data[1][2],data[1][3]],data[0],  color = color[i],linewidth=3.0)
         else:
-            plt.plot(data[0], [data[1][0],data[1][1]], color = color[i],label=list[i],linewidth=3.0)
+            plt.plot([data[1][0],data[1][1]],data[0],  color = color[i],label=list[i],linewidth=3.0)
         # plt.plot(data[0], data[1][0], color='r', linewidth=3.0, label=self.name)
         # plt.plot(data[0], data[1][1], color='r', linewidth=3.0, label=self.name)
         # plt.legend(
     plt.rcParams['font.sans-serif'] = ['SimHei']
     plt.legend()
-    plt.ylabel('frequency（1.0e+13）')
-    plt.xlabel('Absolute value of difference between Z⊥ and Z∥（e）')
+    plt.xlabel('frequency（1.0e+13）')
+    plt.ylabel('Absolute value of difference between Z⊥ and Z∥（e）')
 
     # plt.show()
-    plt.savefig(f'.\PNG\BornCharge.png', dpi=800)
+    plt.savefig(f'.\PNG\BornCharge_n.png', dpi=800)
 
-list = ['BN','BP','AlN','AlP','GaP']
+list = ['BN','BP','AlN','AlP']
 HuaTu(list)

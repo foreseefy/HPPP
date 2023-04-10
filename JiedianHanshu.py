@@ -69,12 +69,13 @@ class JieDianHanShu():
         FourNumber = FourNums(alist1)
         return FourNumber
 
-        # print(FourNums)
     def XiuShi(self,Width):
          FourNumber = JieDianHanShu.Width(self)
-         # print(FourNumber)
-         x_min = FourNumber[0] - 1.0e+13
-         x_max = FourNumber[0] + 2.6e+13
+         print(FourNumber)
+         x_min = FourNumber[0] - 0.3e+13
+         # x_min = FourNumber[0]
+         # x_max = FourNumber[0] + 2.6e+13
+         x_max = FourNumber[0] + 0.3e+13
 
          plt.xlim(x_min,x_max)
          y_min = min(JieDianHanShu.ReadData(self)[1][0].min(),
@@ -83,8 +84,10 @@ class JieDianHanShu():
          y_max = max(JieDianHanShu.ReadData(self)[1][0].max(),
                      JieDianHanShu.ReadData(self)[2][0].max(),
                      JieDianHanShu.ReadData(self)[3][0].max())
-         plt.ylim(y_min / 5, y_max / 5 )
+         plt.ylim(y_min / 8, y_max / 8 )
          # print(FourNumber[0]-0.1e+13,y_max/6)
+
+
          if Width :
              if len(FourNumber) > 2:
                  plt.text(FourNumber[0],y_max/6,r'$TO$',fontdict={'size':'7','color':'b'})
@@ -124,10 +127,10 @@ class JieDianHanShu():
         # plt.show()
 
 
-# a1 = JieDianHanShu('AlP', 1, 1)
-# a1.JiedianHanShuTu()
-# a1.XiuShi(1)
-# a1.save()
+a1 = JieDianHanShu('AlP', 1, 1)
+a1.JiedianHanShuTu()
+a1.XiuShi(1)
+a1.save()
 
 # filename = 'BAs'
 # graph_name = 'dielectric'

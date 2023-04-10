@@ -34,21 +34,19 @@ def jianqie(srcfile,dstfile):
 
 
 
+#把matlab运行完后的色散图放进HPPP_plt中画图
+# list = ['BN','BP','AlN','AlP']
 #
-list = ['BN','BP','AlN','AlP','GaP']
-# list2 = ['x','y','z']
-# for i in list:
-#     for j in list2:
-#         path = f'..\dispersion\{i}\{j}'
-#         create(path)
-# for i in list:
-#     srcfile = f'..\dispersion\{i}\z\OUTCAR.txt'
-#     dstfile = f'..\dispersion\{i}\y\OUTCAR.txt'
+# dire = 'z'
+# for item in list:
+#     srcfile = f'../dispersion/{item}/{dire}/dispersion.txt'
+#     dstfile = f'./dispersion/{dire}/{item}.txt'
 #     mycopyfile(srcfile,dstfile)
-i = 'AlP'
-srcfile1 = r'C:\Users\ADMIN\Desktop\phonopy.yaml'
-srcfile2 = r'C:\Users\ADMIN\Desktop\qpoints.yaml'
-dstfile1 = f'..\dispersion\{i}\y\phonopy.yaml'
-dstfile2 = f'..\dispersion\{i}\y\qpoints.yaml'
-jianqie(srcfile1,dstfile1)
-jianqie(srcfile2,dstfile2)
+
+# i = 'AlP'
+# srcfile1 = r'C:\Users\ADMIN\Desktop\phonopy.yaml'
+# srcfile2 = r'C:\Users\ADMIN\Desktop\qpoints.yaml'
+# dstfile1 = f'..\dispersion\{i}\y\phonopy.yaml'
+# dstfile2 = f'..\dispersion\{i}\y\qpoints.yaml'
+# jianqie(srcfile1,dstfile1)
+# jianqie(srcfile2,dstfile2)
